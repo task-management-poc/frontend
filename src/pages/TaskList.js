@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Button, Container, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Container, Table, TableBody, TableCell, TableHead, TableRow, Button, IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { Edit, Delete } from '@mui/icons-material';
+import Box from '@mui/material/Box';
 
-const API_URL = 'http://localhost:3000/tasks';
+
+const API_URL = 'http://localhost:3001/tasks';
 
 function TaskList() {
   const [tasks, setTasks] = useState([]);
@@ -23,30 +26,47 @@ function TaskList() {
   return (
     <Container>
       <h2>Task List</h2>
-      <Button variant="contained" color="primary" onClick={() => navigate('/task/new')}>Add Task</Button>
-      <Table>
+      <Box component="section" sx={{ p: 2, display:'flex', justifyContent: "space-between", alignItems: "center"}}>
+        <h3>
+          All Tasks
+        </h3>
+        <Button variant="contained" color="primary" onClick={() => navigate('/task/new')}>
+          + Add Task
+        </Button>
+      </Box>
+      
+      <Table sx={{ mt: 2, borderRadius: 2, boxShadow: 3, width: "100%" }}>
         <TableHead>
-          <TableRow>
-            <TableCell>Title</TableCell>
-            <TableCell>Status</TableCell>
-            <TableCell>Due Date</TableCell>
-            <TableCell>Actions</TableCell>
+          <TableRow sx={{ bgcolor: "primary.main" }}>
+            <TableCell sx={{ color: "white", fontWeight: "bold" }}>S. No</TableCell>
+            <TableCell sx={{ color: "white", fontWeight: "bold", width: "30%" }} colSpan={2}>
+              Title
+            </TableCell>
+            <TableCell sx={{ color: "white", fontWeight: "bold" }}>Status</TableCell>
+            <TableCell sx={{ color: "white", fontWeight: "bold" }}>Due Date</TableCell>
+            <TableCell sx={{ color: "white", fontWeight: "bold", }}>Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {tasks.map((task) => (
-            <TableRow key={task.id}>
-              <TableCell>{task.title}</TableCell>
+          {tasks.map((task, index) => (
+            <TableRow key={task.id} hover>
+              <TableCell>{index + 1}</TableCell>
+              <TableCell colSpan={2}>{task.title}</TableCell>
               <TableCell>{task.status}</TableCell>
               <TableCell>{new Date(task.due_date).toLocaleDateString()}</TableCell>
-              <TableCell>
-                <Button variant="outlined" onClick={() => navigate(`/task/edit/${task.id}`)}>Edit</Button>
-                <Button variant="outlined" color="error" onClick={() => deleteTask(task.id)}>Delete</Button>
+              <TableCell >
+                <IconButton color="primary" onClick={() => navigate(`/task/edit/${task.id}`)}>
+                  <Edit />
+                </IconButton>
+                <IconButton color="error" onClick={() => deleteTask(task.id)}>
+                  <Delete />
+                </IconButton>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+
     </Container>
   );
 }

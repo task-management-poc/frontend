@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Button, Container, TextField, MenuItem } from '@mui/material';
 
-const API_URL = 'http://localhost:3000/tasks';
+const API_URL = 'http://localhost:3001/tasks';
 
 const statuses = ["To Do", "In Progress", "Completed"];
 
