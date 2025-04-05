@@ -58,15 +58,15 @@ Visit the frontend in your browser:
 2. Sorting and filtering tasks by status or due date
 
 - Authenticated Users
-1. Register/Login via JWT
+-- Register/Login via JWT
 
-2. Create new tasks
+-- Create new tasks
 
-3. Edit existing tasks
+-- Edit existing tasks
 
-4. Delete tasks
+-- Delete tasks
 
-5. Auto-redirect on auth state
+-- Auto-redirect on auth state
 
 ### 3. Components Breakdown
 1. TaskList.jsx
