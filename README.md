@@ -4,19 +4,35 @@ A responsive and user-friendly frontend built with **React.js** that allows user
 
 ---
 
-## 📦 Tech Stack
+## Tech Stack
 
-- ⚛️ **React.js** – Frontend framework
-- 🧪 **Axios** – For making HTTP requests to the backend API
-- 🎨 **Bootstrap** – UI framework for responsive styling
-- 🔐 **JWT Auth** – Secure authentication using JWT
-- 🌐 **React Router DOM** – For route management
+- **React.js** – Frontend framework
+- **Axios** – For making HTTP requests to the backend API
+- **Bootstrap** – UI framework for responsive styling
+- **JWT Auth** – Secure authentication using JWT
+- **React Router DOM** – For route management
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
-frontend/ ├── public/ ├── src/ │ ├── components/ │ │ ├── TaskList.jsx │ │ ├── TaskForm.jsx │ │ ├── Login.jsx │ │ ├── Register.jsx │ │ └── Navbar.jsx │ ├── services/ │ │ └── api.js │ ├── App.js │ ├── index.js │ └── PrivateRoute.js ├── .env ├── package.json └── README.md
+frontend/ 
+├── public/ 
+├── src/ 
+│ ├── components/ 
+│ │ ├── TaskList.jsx 
+│ │ ├── TaskForm.jsx 
+│ │ ├── Login.jsx 
+│ │ ├── Register.jsx 
+│ │ └── Navbar.jsx 
+│ ├── services/ 
+│ │ └── api.js 
+│ ├── App.js 
+│ ├── index.js 
+│ └── PrivateRoute.js 
+├── .env 
+├── package.json 
+└── README.md
 
 
 ---
@@ -36,21 +52,21 @@ npm start
 Visit the frontend in your browser:
 
 ### 3. Features
-✅ Public Access
-View a list of all tasks
+- Public Access
+1. View a list of all tasks
 
-Sorting and filtering tasks by status or due date
+2. Sorting and filtering tasks by status or due date
 
-🔐 Authenticated Users
-Register/Login via JWT
+- Authenticated Users
+1. Register/Login via JWT
 
-Create new tasks
+2. Create new tasks
 
-Edit existing tasks
+3. Edit existing tasks
 
-Delete tasks
+4. Delete tasks
 
-Auto-redirect on auth state
+5. Auto-redirect on auth state
 
 ### 3. Components Breakdown
 1. TaskList.jsx
