@@ -1,4 +1,4 @@
-# ⚛️ Task Management System – Frontend (React.js)
+# Task Management System – Frontend (React.js)
 
 A responsive and user-friendly frontend built with **React.js** that allows users to view, create, update, and delete tasks. Integrated with JWT authentication to protect sensitive routes, this UI connects to a NestJS backend API and PostgreSQL database.
 
