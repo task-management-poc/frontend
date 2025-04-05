@@ -25,15 +25,17 @@ frontend/ ├── public/ ├── src/ │ ├── components/ │ │ ├
 
 ### 1. Install Dependencies
 
-```bash
+```
 npm install
 ```
 
 ### 2. Start the Development Server
+```
 npm start
+```
 Visit the frontend in your browser:
 
-🔧 Features
+### 3. Features
 ✅ Public Access
 View a list of all tasks
 
@@ -51,47 +53,47 @@ Delete tasks
 Auto-redirect on auth state
 
 ### 3. Components Breakdown
-- TaskList.jsx
-1. Displays all tasks in a table/grid
+1. TaskList.jsx
+- Displays all tasks in a table/grid
 
-2. Supports sorting and filtering
+- Supports sorting and filtering
 
-3. Publicly accessible
+- Publicly accessible
 
-- TaskForm.jsx
-1. Add/edit task form
+2. TaskForm.jsx
+- Add/edit task form
 
-2. Protected via PrivateRoute
+- Protected via PrivateRoute
 
-3. Validates input fields
+- Validates input fields
 
-- Login.jsx & Register.jsx
-1. Auth forms with error feedback
+3. Login.jsx & Register.jsx
+- Auth forms with error feedback
 
-2. Stores token in localStorage
+- Stores token in localStorage
 
-3. Redirect on successful login
+- Redirect on successful login
 
-- Navbar.jsx
-1. Conditional rendering for login/logout
+4. Navbar.jsx
+- Conditional rendering for login/logout
 
-2. Navigates to Home, Add Task, etc.
+- Navigates to Home, Add Task, etc.
 
 
 ### 4. API Communication
 Using Axios in services/api.js, configured to use:
-
+```
 Authorization: Bearer <token> for secure endpoints
-
+```
 Global error handling (401/500)
 
 
 ### 5. Authentication Flow
-Register → POST /users
+- Register → POST /users
 
-Login → POST /auth/login
+- Login → POST /auth/login
 
-Store JWT token in localStorage
+- Store JWT token in localStorage
 
 Append token to all secure requests via Axios
 
