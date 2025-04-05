@@ -1,70 +1,127 @@
-# Getting Started with Create React App
+# ⚛️ Task Management System – Frontend (React.js)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive and user-friendly frontend built with **React.js** that allows users to view, create, update, and delete tasks. Integrated with JWT authentication to protect sensitive routes, this UI connects to a NestJS backend API and PostgreSQL database.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📦 Tech Stack
 
-### `npm start`
+- ⚛️ **React.js** – Frontend framework
+- 🧪 **Axios** – For making HTTP requests to the backend API
+- 🎨 **Bootstrap** – UI framework for responsive styling
+- 🔐 **JWT Auth** – Secure authentication using JWT
+- 🌐 **React Router DOM** – For route management
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📁 Project Structure
 
-### `npm test`
+frontend/ ├── public/ ├── src/ │ ├── components/ │ │ ├── TaskList.jsx │ │ ├── TaskForm.jsx │ │ ├── Login.jsx │ │ ├── Register.jsx │ │ └── Navbar.jsx │ ├── services/ │ │ └── api.js │ ├── App.js │ ├── index.js │ └── PrivateRoute.js ├── .env ├── package.json └── README.md
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 How to Setup & Run
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Install Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+### 2. Start the Development Server
+npm start
+Visit the frontend in your browser:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+🔧 Features
+✅ Public Access
+View a list of all tasks
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Sorting and filtering tasks by status or due date
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🔐 Authenticated Users
+Register/Login via JWT
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create new tasks
 
-## Learn More
+Edit existing tasks
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Delete tasks
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Auto-redirect on auth state
 
-### Code Splitting
+🧩 Components Breakdown
+📋 TaskList.jsx
+Displays all tasks in a table/grid
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Supports sorting and filtering
 
-### Analyzing the Bundle Size
+Publicly accessible
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+📝 TaskForm.jsx
+Add/edit task form
 
-### Making a Progressive Web App
+Protected via PrivateRoute
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Validates input fields
 
-### Advanced Configuration
+🔐 Login.jsx & Register.jsx
+Auth forms with error feedback
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Stores token in localStorage
 
-### Deployment
+Redirect on successful login
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+🚪 Navbar.jsx
+Conditional rendering for login/logout
 
-### `npm run build` fails to minify
+Navigates to Home, Add Task, etc.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🔐 PrivateRoute.jsx
+Higher-order component
+
+Protects authenticated routes
+
+Redirects unauthenticated users to login
+
+🔁 API Communication
+Using Axios in services/api.js, configured to use:
+
+Authorization: Bearer <token> for secure endpoints
+
+Global error handling (401/500)
+
+🧪 Validation
+Tasks must have title, description, status, and due_date
+
+Login/registration requires username and password
+
+Alerts displayed for missing/invalid inputs
+
+📱 Responsive Design
+Fully mobile-responsive using Bootstrap classes
+
+Optimized for both desktop and mobile devices
+
+🔒 Authentication Flow
+Register → POST /users
+
+Login → POST /auth/login
+
+Store JWT token in localStorage
+
+Append token to all secure requests via Axios
+
+Logout clears token and redirects to login
+
+Login and get redirected to tasks
+
+Add or update tasks
+
+Logout and lose access to protected routes
+
+Add pagination to task list
+
+Add status badges and task priority levels
+
+Handle expired JWT tokens with auto-logout
