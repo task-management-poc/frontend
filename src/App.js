@@ -1,17 +1,16 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './AuthContext';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import TaskList from './pages/TaskList';
 import TaskForm from './pages/TaskForm';
+import Navbar from './components/Navbar'
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-       <nav>
-          <Link to="/">Tasks</Link> | <Link to="/login">Login</Link> | <Link to="/register">Register</Link>
-        </nav>
+      <Navbar />
       <Routes>
         <Route path="/" element={<TaskList />} />
         <Route path="/task/new" element={<TaskForm />} />
