@@ -111,12 +111,12 @@ Global error handling (401/500)
 
 - Store JWT token in localStorage
 
-Append token to all secure requests via Axios
+- Append token to all secure requests via Axios
 
-Logout clears token and redirects to login
+- Logout clears token and redirects to login
 
-Login and get redirected to tasks
+- Login and get redirected to tasks
 
-Add or update tasks
+- Add or update tasks
 
-Logout and lose access to protected routes
+- Logout and lose access to protected routes
