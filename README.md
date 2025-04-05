@@ -50,60 +50,43 @@ Delete tasks
 
 Auto-redirect on auth state
 
-🧩 Components Breakdown
-📋 TaskList.jsx
-Displays all tasks in a table/grid
+### 3. Components Breakdown
+- TaskList.jsx
+1. Displays all tasks in a table/grid
 
-Supports sorting and filtering
+2. Supports sorting and filtering
 
-Publicly accessible
+3. Publicly accessible
 
-📝 TaskForm.jsx
-Add/edit task form
+- TaskForm.jsx
+1. Add/edit task form
 
-Protected via PrivateRoute
+2. Protected via PrivateRoute
 
-Validates input fields
+3. Validates input fields
 
-🔐 Login.jsx & Register.jsx
-Auth forms with error feedback
+- Login.jsx & Register.jsx
+1. Auth forms with error feedback
 
-Stores token in localStorage
+2. Stores token in localStorage
 
-Redirect on successful login
+3. Redirect on successful login
 
-🚪 Navbar.jsx
-Conditional rendering for login/logout
+- Navbar.jsx
+1. Conditional rendering for login/logout
 
-Navigates to Home, Add Task, etc.
+2. Navigates to Home, Add Task, etc.
 
-🔐 PrivateRoute.jsx
-Higher-order component
 
-Protects authenticated routes
-
-Redirects unauthenticated users to login
-
-🔁 API Communication
+### 4. API Communication
 Using Axios in services/api.js, configured to use:
 
 Authorization: Bearer <token> for secure endpoints
 
 Global error handling (401/500)
 
-🧪 Validation
-Tasks must have title, description, status, and due_date
 
-Login/registration requires username and password
-
-Alerts displayed for missing/invalid inputs
-
-📱 Responsive Design
-Fully mobile-responsive using Bootstrap classes
-
-Optimized for both desktop and mobile devices
-
-🔒 Authentication Flow
+### 5. Authentication Flow
 Register → POST /users
 
 Login → POST /auth/login
@@ -119,9 +102,3 @@ Login and get redirected to tasks
 Add or update tasks
 
 Logout and lose access to protected routes
-
-Add pagination to task list
-
-Add status badges and task priority levels
-
-Handle expired JWT tokens with auto-logout
