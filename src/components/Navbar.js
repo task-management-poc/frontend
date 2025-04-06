@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext';
 
 export default function Navbar() {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const { token, logout } = useContext(AuthContext); // Use 'token' instead of 'isAuthenticated'
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -19,7 +19,7 @@ export default function Navbar() {
           Task Manager
         </Typography>
         <Box>
-          {isAuthenticated ? (
+          {token ? ( // Check for the presence of the token
             <>
               <Button color="inherit" component={Link} to="/">
                 Tasks
