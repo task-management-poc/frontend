@@ -13,8 +13,10 @@ export default function RegisterPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await API.post('/users', form); // Register the user
+      await API.post('/auth/register', form); // Register the user
+      console.log('trying login')
       const res = await API.post('/auth/login', form); // Auto-login after registration
+      console.log('logged in with ', res)
       login(res.data.access_token);
       navigate('/');
     } catch (err) {

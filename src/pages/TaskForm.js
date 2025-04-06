@@ -1,9 +1,8 @@
+// src/pages/TaskForm.js
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import axios from 'axios';
 import { Button, Container, TextField, MenuItem } from '@mui/material';
-
-const API_URL = 'http://localhost:3001/tasks';
+import API from '../api';
 
 const statuses = ["To Do", "In Progress", "Completed"];
 
@@ -14,7 +13,9 @@ function TaskForm() {
 
   useEffect(() => {
     if (id) {
-      axios.get(`${API_URL}/${id}`).then(response => setTask(response.data));
+      API.get(`/tasks/${id}`)
+        .then(response => setTask(response.data))
+        .catch(err => console.error('Error fetching task:', err));
     }
   }, [id]);
 
@@ -24,12 +25,16 @@ function TaskForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (id) {
-      await axios.put(`${API_URL}/${id}`, task);
-    } else {
-      await axios.post(API_URL, task);
+    try {
+      if (id) {
+        await API.put(`/tasks/${id}`, task);
+      } else {
+        await API.post('/tasks', task);
+      }
+      navigate('/');
+    } catch (error) {
+      console.error('Error saving task:', error);
     }
-    navigate('/');
   };
 
   return (
